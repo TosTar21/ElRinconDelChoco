@@ -1,3 +1,3 @@
 // src/utils/constants.js
-export const TMDB_API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhOTg1ZDdhZTVjNmE1MTY1ZjcyYTA1ODNkYmZiMmExMyIsIm5iZiI6MTc0NTY4MjU2My42Miwic3ViIjoiNjgwZDAwODNmOTdmNWNiNmI4ZWFiMjMxIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.NQe2FhnjiOtPCj8SE7yIINaHUsNoxWMDr5uYCuZpg10';
+export const TMDB_API_KEY = 'a985d7ae5c6a5165f72a0583dbfb2a13';
 export const GOOGLE_BOOKS_API_KEY = 'AIzaSyACbCRR2-53AedSfdQf39nveALLRBSJW5c';

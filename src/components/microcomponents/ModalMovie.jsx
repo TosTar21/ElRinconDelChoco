@@ -1,0 +1,50 @@
+// src/components/Modal.jsx
+const ModalMovie = ({ isOpen, closeModal, item, type }) => {
+    if (!isOpen || !item) return null;
+  
+    const isMovie = type === 'movies'; // Ojo que aquí debe ser 'movies' o 'books' como tu mode en App.jsx
+  
+    return (
+      <div className="fixed inset-0 bg-opacity-90 flex items-center justify-center z-50">
+        <div className="bg-white text-black rounded-lg p-6 w-11/12 max-w-md relative">
+          <button
+            onClick={closeModal}
+            className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+          >
+            ✕
+          </button>
+  
+          <img
+            src={
+              isMovie
+                ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
+                : item.volumeInfo?.imageLinks?.thumbnail
+            }
+            alt={isMovie ? item.title : item.volumeInfo?.title}
+            className="rounded-lg mb-4 w-full h-64 object-cover"
+          />
+  
+          <h2 className="text-2xl font-bold mb-2">
+            {isMovie ? item.title : item.volumeInfo?.title}
+          </h2>
+  
+          {isMovie ? (
+            <>
+              <p><strong>Fecha de lanzamiento:</strong> {item.release_date || 'No disponible'}</p>
+              <p><strong>Rating:</strong> {item.vote_average || 'N/A'}</p>
+              <p className="mt-2">{item.overview || 'Sin descripción disponible.'}</p>
+            </>
+          ) : (
+            <>
+              <p><strong>Autores:</strong> {item.volumeInfo?.authors?.join(', ') || 'No disponible'}</p>
+              <p><strong>Publicado:</strong> {item.volumeInfo?.publishedDate || 'No disponible'}</p>
+              <p className="mt-2">{item.volumeInfo?.description || 'Sin descripción disponible.'}</p>
+            </>
+          )}
+        </div>
+      </div>
+    );
+  };
+  
+  export default ModalMovie;
+  
