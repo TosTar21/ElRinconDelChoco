@@ -1,7 +1,7 @@
 // src/hooks/useAppLogic.js
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { getPopularMovies } from '../services/movieService';
+import { useBooks } from './useBooks';
+import { useMovies } from './useMovies';
 
 export const useAppLogic = () => {
   const [mode, setMode] = useState('movies');
@@ -9,11 +9,8 @@ export const useAppLogic = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const { data: movies, isLoading: loadingMovies } = useQuery({
-    queryKey: ['popularMovies'],
-    queryFn: getPopularMovies,
-    enabled: mode === 'movies',
-  });
+  const { movies, loadingMovies } = useMovies();
+  const { books, loadingBooks } = useBooks();
 
   const openPreferences = () => setShowPreferences(true);
   const closePreferences = () => setShowPreferences(false);
@@ -40,5 +37,7 @@ export const useAppLogic = () => {
     selectedItem,
     movies,
     loadingMovies,
+    books,
+    loadingBooks,
   };
 };
