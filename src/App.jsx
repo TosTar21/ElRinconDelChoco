@@ -1,10 +1,16 @@
 import "./styles/index.css"
+import Navbar from './components/layout/Navbar';
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [mode, setMode] = useState('movies'); // Estado para Películas o Libros
+  const [showPreferences, setShowPreferences] = useState(false); // Estado para abrir/cerrar modal
+
+  const openPreferences = () => setShowPreferences(true);
 
   return (
     <>
-      <h1 className="bg-red-300">hola</h1>
+      <Navbar mode={mode} setMode={setMode} openPreferences={openPreferences} />
     </>
   )
 }
