@@ -1,13 +1,11 @@
 // src/services/bookService.js
 import apiClient from './apiClient';
-import { GOOGLE_BOOKS_API_KEY } from '../utils/constants';
-
-const BASE_URL = 'https://www.googleapis.com/books/v1';
+import { GOOGLE_BOOKS_API_KEY, GOOGLE_BOOKS_BASE_URL } from '../utils/constants';
 
 export const getPopularBooks = async () => {
-  const response = await apiClient.get(`${BASE_URL}/volumes`, {
+  const response = await apiClient.get(`${GOOGLE_BOOKS_BASE_URL}/volumes`, {
     params: {
-      q: 'subject:fiction', // libros de ficción populares
+      q: 'subject:fiction', // Tema general de libros populares
       orderBy: 'relevance',
       maxResults: 20,
       key: GOOGLE_BOOKS_API_KEY,
@@ -17,9 +15,9 @@ export const getPopularBooks = async () => {
 };
 
 export const searchBooksByPreferences = async (preferences) => {
-  const response = await apiClient.get(`${BASE_URL}/volumes`, {
+  const response = await apiClient.get(`${GOOGLE_BOOKS_BASE_URL}/volumes`, {
     params: {
-      q: preferences.query, // por ejemplo "Harry Potter"
+      q: preferences.query,
       orderBy: 'relevance',
       maxResults: 20,
       key: GOOGLE_BOOKS_API_KEY,
