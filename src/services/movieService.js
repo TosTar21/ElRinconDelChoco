@@ -1,24 +1,22 @@
 // src/services/movieService.js
 import apiClient from './apiClient';
-import { TMDB_API_KEY } from '../utils/constants';
-
-const BASE_URL = 'https://api.themoviedb.org/3';
+import { TMDB_API_KEY, TMDB_BASE_URL } from '../utils/constants';
 
 export const getPopularMovies = async () => {
-  const response = await apiClient.get(`${BASE_URL}/movie/popular`, {
+  const response = await apiClient.get(`${TMDB_BASE_URL}/movie/popular`, {
     params: {
       api_key: TMDB_API_KEY,
-      language: 'es-ES', // Puedes cambiar el idioma
+      language: 'es-ES',
     },
   });
-  return response.data.results; // Solo devolvemos la lista de películas
+  return response.data.results;
 };
 
 export const searchMoviesByPreferences = async (preferences) => {
-  const response = await apiClient.get(`${BASE_URL}/search/movie`, {
+  const response = await apiClient.get(`${TMDB_BASE_URL}/search/movie`, {
     params: {
       api_key: TMDB_API_KEY,
-      query: preferences.query, // Por ejemplo "Avengers"
+      query: preferences.query,
       language: 'es-ES',
     },
   });
