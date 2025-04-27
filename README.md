@@ -18,6 +18,36 @@ Proyecto desarrollado con **React 19 + Vite + TailwindCSS + React Query + Axios*
 
 ---
 
-## 🏛️ Estructura de carpetas
+## 🛠️ Instalación del Proyecto
 
-/public /src ├── App.jsx # Componente principal ├── main.jsx # Punto de entrada (envuelve App con QueryClientProvider) ├── assets/ # Imágenes y recursos estáticos ├── components/ │ ├── layout/ │ │ └── Navbar.jsx # Barra de navegación │ └── microcomponents/ │ ├── Card.jsx # Componente de tarjeta (película o libro) │ ├── Carousel.jsx # Carrusel horizontal de tarjetas │ ├── FilterDropdown.jsx # Selector de películas/libros │ ├── Modal.jsx # Modal de detalle │ └── PreferencesButton.jsx # Botón para abrir preferencias ├── hooks/ │ ├── useAppLogic.js # Hook principal para manejar estados generales │ ├── useBooks.js # Hook para libros populares │ ├── useMovies.js # Hook para películas populares │ └── usePreferences.js # Hook para recomendaciones basadas en OpenAI ├── services/ │ ├── apiClient.js # Instancia base de Axios │ ├── bookService.js # Llamadas a Google Books API │ ├── movieService.js # Llamadas a TMDb API │ └── openaiService.js # Llamadas a OpenAI API ├── styles/ │ └── index.css # Estilos globales (importa Tailwind) └── utils/ └── constants.js # Constantes globales (API Keys y URLs)
+Sigue estos pasos para levantar el proyecto de manera local:
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/TuUsuario/ElRinconDelChoco.git
+
+cd ElRinconDelChoco
+
+npm install
+
+npm run dev
+
+
+---
+
+# ✅ Guía para hacer Commits correctamente (Markdown)
+
+```markdown
+## ✅ Guía para hacer Commits correctamente
+
+Sigue esta estructura para mantener el historial de cambios limpio y entendible:
+
+### 1. Añadir cambios al área de staging
+
+git add .
+git commit -m "Crear formulario de preferencias"
+git commit -m "Corregir bug en el modal de detalles"
+git commit -m "Agregar carrusel de libros recomendados"
+git push origin nombre-de-tu-rama
+
